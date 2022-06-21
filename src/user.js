@@ -9,28 +9,11 @@ const getAllUser = () => {
   return userList;
 };
 const getUserById = (userId) => {
-  let findItem = null;
-  for (let i = 0; i < userList.length; i++) {
-    let item = userList[i];
-
-    if (item.id == userId) {
-      findItem = item;
-      break;
-    }
-  }
-
-  return findItem;
+  return userList.find((item) => item.id == userId);
 };
 
 const updateUser = (userId, userBody) => {
-  let findItem;
-  for (let i = 0; i < userList.length; i++) {
-    let item = userList[i];
-    if (item.id == userId) {
-      findItem = item;
-      break;
-    }
-  }
+  let findItem = userList.find((item) => item.id == userId);
 
   if (findItem) {
     findItem.username = userBody.username;
